@@ -1,0 +1,282 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Java 学习 | Gridea</title>
+<link rel="shortcut icon" href="https://fcdx01.github.io/favicon.ico?v=1686478668348">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fcdx01.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Java 学习 | Gridea - Atom Feed" href="https://fcdx01.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="基本数据类型的转换
+自动类型转换
+
+有多种类型的数据混合运算时，系统首先自动将所有数据转换成容量最大的那种数据类型，然后再进行计算。
+当我们把精度大的数据类型复制给精度小的数据类型时，就会报错，反之会进行自动的类型转换。
+(byte,sho..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://fcdx01.github.io">
+  <img class="avatar" src="https://fcdx01.github.io/images/avatar.png?v=1686478668348" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Java 学习
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-05-19
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h1 id="基本数据类型的转换">基本数据类型的转换</h1>
+<h2 id="自动类型转换">自动类型转换</h2>
+<ol>
+<li>有多种类型的数据混合运算时，系统首先自动将所有数据转换成容量最大的那种数据类型，然后再进行计算。</li>
+<li>当我们把精度大的数据类型复制给精度小的数据类型时，就会报错，反之会进行自动的类型转换。</li>
+<li>(byte,shot)和char之间不会相互自动转换。</li>
+<li><mark>byte，shot，char他们三者可以计算，在计算时首先为int类型。</mark><br>
+<strong>注意</strong></li>
+</ol>
+<pre><code>        char n1 = '男';
+        char n2 = '女';
+        System.out.println(n1+n2);
+
+</code></pre>
+<hr>
+<pre><code>        输出为男女acs码相加的值
+</code></pre>
+<ol>
+<li>boolean不参与转换</li>
+<li>自动提升原则：表达式结果的类型自动提升为操作数中最大的类型</li>
+</ol>
+<pre><code>byte b2 = 11;
+short b3 = 2;   
+int s2 = b2 + b3;     需要用int来接受 因为short byte 进行运算时就会自动转换成 int
+</code></pre>
+<p><em>byte short int 在一起进行运算</em> 其结果只能用 <mark>double接收</mark></p>
+<h2 id="强制类型转换">强制类型转换</h2>
+<p><strong>介绍</strong> ：<em>可能造成精度的降低或溢出</em> <mark>需格外小心</mark></p>
+<pre><code>		int n1 = (int)1.9;
+		System.out.println(&quot;n1&quot; + &quot;:&quot; + n1); //1
+		int n2 = 2000;
+		byte b1 = (byte)n2;
+		System.out.println(&quot;b1&quot; + &quot;:&quot; + b1); //造成数据溢出-48
+</code></pre>
+<p><strong>细节</strong> ：</p>
+<ol>
+<li>当进行数据的大小从大--&gt;小，就需要使用到强制转换</li>
+<li>强制符号治针对最近的操作数有效，往往会使用小括号提升优先级</li>
+</ol>
+<pre><code>        int x = (int)10*3.5+6*1.5;//编译错误 因为强制转换只会转换为最近的操作数
+		int y = (int)(10*3.5+6*1.5); //这样就可以了 int(44.0)-&gt;44
+		System.out.println(y);
+</code></pre>
+<ol start="3">
+<li>char类型可以保存int常量值，但不能保存int的变量值，需要强转</li>
+</ol>
+<pre><code>        char c1 = 100;
+		int m = 100;
+		char c2 = m; //错误
+		char c3 = (char)m;
+		System.out.println(c3); //d
+		System.out.println(c1); //d
+</code></pre>
+<ol start="4">
+<li>byte和short类型再进行运算时，当做int类型处理</li>
+</ol>
+<h3 id="强制转换为string类型">强制转换为String类型</h3>
+<p><strong>直接在后面加“”就可以强制转换了 或者直接用“”包起来</strong></p>
+<pre><code>        int n1 = 100;
+		float f1 = 1.1F;
+		double d1 = 4.5;
+		boolean b1 = true;
+		String s1 = n1 + &quot;&quot;;
+		String s2 = f1 + &quot;&quot;;
+		String s3 = d1 + &quot;&quot;;
+		String s4 = b1 + &quot;&quot;;
+		System.out.println(s1+&quot; &quot;+s2+&quot; &quot;+s3+&quot; &quot;+s4);
+        结果：100 1.1 4.5 true
+</code></pre>
+<h3 id="string类型转基本数据类型">String类型转基本数据类型</h3>
+<p>比较麻烦一点需要用基本类型的包装类调用parseXXX方法<br>
+<em>使用基本数据类型对应的包装类，相应方法，得到基本数据类型</em></p>
+<pre><code>        int num1 Integer.parseInt(s5);
+		double num2 Double.parseDouble(s5);
+		float num3 FLoat.parseFloat(s5);
+		Long num4 Long.parseLong(s5);
+		byte num5 Byte.parseByte(s5);
+		boolean b Boolean.parseBoolean(&quot;true&quot;);
+		short num6 Short.parseshort(s5);
+</code></pre>
+<p><em>在将String类型转成基本数据类型时，要确保String类型能够转成有效的数据，比如我们可以把&quot;123”，转成一个整数，但是不能把&quot;hlo&quot;转成一个整数如果格式不正确，就会抛出异常，程序就会终止，这个问题在异常处理章节中，会处理</em></p>
+<h1 id="算术运算符">算术运算符</h1>
+<ol>
+<li>+,-,*,/,%,++,-,重点讲解/、%、++</li>
+<li>自增：++作为独立的语句使用：前++和后++都完全等价于i=i+1;作为表达式使用<br>
+前++：++先自增后赋值<br>
+后++：i++先赋值后自增</li>
+<li>+、-、*是一个道理，完全可以类推。<br>
+<strong>面试题</strong></li>
+</ol>
+<pre><code>int i = 1;
+int = i++;
+System.out.println(i);
+问结果是多少？ why？
+</code></pre>
+<p>首先计算机会使用一个临时变量 temp<br>
+<mark>temp=i; i=i+1; i=temp;</mark><br>
+因此 i最后=1；<br>
+<strong>面试题2</strong></p>
+<pre><code>int i = 1;
+int = ++i;
+System.out.println(i);
+问结果是多少？ why？
+</code></pre>
+<p>首先计算机会使用一个临时变量 temp<br>
+<mark>i=i+1；temp=i; i=temp;</mark><br>
+因此 i最后=2；<br>
+<em>67</em></p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2">基本数据类型的转换</a>
+<ul>
+<li><a href="#%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2">自动类型转换</a></li>
+<li><a href="#%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2">强制类型转换</a>
+<ul>
+<li><a href="#%E5%BC%BA%E5%88%B6%E8%BD%AC%E6%8D%A2%E4%B8%BAstring%E7%B1%BB%E5%9E%8B">强制转换为String类型</a></li>
+<li><a href="#string%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">String类型转基本数据类型</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6">算术运算符</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://fcdx01.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

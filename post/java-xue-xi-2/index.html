@@ -1,0 +1,281 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Java学习2 | Gridea</title>
+<link rel="shortcut icon" href="https://fcdx01.github.io/favicon.ico?v=1686478668348">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fcdx01.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Java学习2 | Gridea - Atom Feed" href="https://fcdx01.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="关系运算符
+        int a = 9;
+		int b = 8;
+		System.out.println(a&gt;b); //T
+		System.out.println(a&gt;=b); //T
+		boolean fla..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://fcdx01.github.io">
+  <img class="avatar" src="https://fcdx01.github.io/images/avatar.png?v=1686478668348" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Java学习2
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-05-22
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h2 id="关系运算符">关系运算符</h2>
+<pre><code>        int a = 9;
+		int b = 8;
+		System.out.println(a&gt;b); //T
+		System.out.println(a&gt;=b); //T
+		boolean flag = (a&gt;b);
+		System.out.println(flag);
+
+        true
+        true
+        true
+</code></pre>
+<h2 id="逻辑运算符">逻辑运算符</h2>
+<p><strong>逻辑运算规则</strong></p>
+<ol>
+<li>a&amp;b : &amp; 叫逻辑与：规则：<mark>如果第一个条件为false，则后面的任然会判断</mark>。当a 和b 同时为true ,则结果为true, 否则为false</li>
+<li>a&amp;&amp;b : &amp;&amp; 叫短路与：规则：<mark>如果第一个条件为false，则后面的不会执行</mark>。当a 和b 同时为true ,则结果为true,否则为false</li>
+<li>a|b : | 叫逻辑或，规则：<mark>如果第一个条件为false，则后面的任然会判断</mark>。当a 和b ，有一个为true ,则结果为true,否则为false</li>
+<li>a||b : || 叫短路或，规则：<mark>如果第一个条件为false，则后面的不会执行</mark>。当a 和b ，有一个为true ,则结果为true,否则为false</li>
+<li>!a : 叫取反，或者非运算。当a 为true, 则结果为false, 当a 为false 是，结果为true</li>
+<li>a^b: 叫逻辑异或，当a 和b 不同时，则结果为true, 否则为false</li>
+</ol>
+<h2 id="三元运算符">三元运算符</h2>
+<p><strong>三元运算符细节</strong><br>
+具体没啥细节 也就是数据类型的细节例如<em>int不能接受double类型的也就是</em></p>
+<pre><code>int a = c &gt; b ? 1.1 : 3.3;
+因为a是int类型 接收不了double类型的
+</code></pre>
+<p>1.运算符有不同的优先级，所谓优先级就是表达式运算中的运算顺序。如右表，上一行运算符总优先于下一行。<br>
+2.只有单目运算符、赋值运算符是从右向左运算的，<br>
+<img src="https://fcdx01.github.io/post-images/1684932900138.png" alt="" loading="lazy"></p>
+<h2 id="标识符命名规则">标识符命名规则</h2>
+<p>1.由26个英文字母大小写，0-9，或$组成<br>
+2.数字不可以开头。int3ab=1:/错误<br>
+3.不可以使用关键字和保留字，但能包含关键字和保留字。<br>
+4.Java中严格区分大小写，长度无限制。int totalNum=10;intn=90;<br>
+5.标识符不能包含空格。int a b=90;</p>
+<h2 id="标识符命名规范">标识符命名规范</h2>
+<p>1.包名：多单词组成时所有字母都小写：aaa.bbb.ccc/比如com.hsp.crm<br>
+2.类名、接口名：多单词组成时，所有单词的首字母大写：XxxYyyZzz<br>
+比如：TankShotGame<br>
+3.变量名、方法名：多单词组成时，第一个单词首字母小写，第二个单词开始每个<br>
+单词首字母大写：xxxYyyZzz<br>
+比如：tankShotGame<br>
+4.常量名：所有字母都大写。多单词时每个单词用下划线连接：XXX YYY ZZZ<br>
+比如：定义一个所得税率TAX RATE<br>
+5.后面我们学习到类，包，接口，等时，我们的命名规范要这样遵守，更加详细的<br>
+看文档。</p>
+<h2 id="键盘输入">键盘输入</h2>
+<p>首先需要先导入java包<br>
+然后再才可以使用Scanner</p>
+<pre><code>import java.util.Scanner; //将java.util下的Scanner类导入
+public class InPut{
+	public static void main(String[] args){
+		//创建Scanner对象
+		Scanner scanner = new Scanner(System.in);
+		System.out.println(&quot;请输入名字&quot;);
+		String name = scanner.next(); //接受用户输入
+		System.out.println(&quot;请输入年龄&quot;);
+		int age = scanner.nextInt(); //接受用户输入
+		System.out.println(&quot;请输入薪水&quot;);
+		double s = scanner.nextDouble(); //接受用户输入
+		System.out.println(&quot;名字=&quot; + name + &quot;年龄=&quot; + age + &quot;薪水=&quot; + s);
+	}
+}
+</code></pre>
+<h2 id="进制的介绍">进制的介绍</h2>
+<p>1.二进制：0,1 ，满2 进1.以0b 或0B 开头。<br>
+2.十进制：0-9 ，满10 进1。<br>
+3.八进制：0-7 ，满8 进1. 以数字0 开头表示。<br>
+4.十六进制：0-9 及A(10)-F(15)，满16 进1. 以0x 或0X 开头表示。此处的A-F 不区分大小写。<br>
+<strong>位运算</strong><br>
+<em>原码、补码、反码</em><br>
+1.二进制的最高位是符号位：0表示正数，1表示负数（老韩口诀：0-&gt;0 1-&gt;-）<br>
+2.正数的原码，反码，补码都一样（三码合一）<br>
+3.负数的反码=它的原码符号位不变，其它位取反(0-&gt;1,1-&gt;0)<br>
+4.负数的补码=它的反码+1，负数的反码=负数的补码-1<br>
+5.0的反码，补码都是0<br>
+6.java没有无符号数，换言之，java中的数都是有符号的<br>
+7.在计算机运算的时候，都是<mark>以补码的方式来运算的</mark>，<br>
+8.当我们看运算结果的时候，要看他的<mark>原码</mark><br>
+按位与&amp;   ：   两位全为1，结果为1，否则为0<br>
+按位或|     ：   两位有一个为1，结果为1，否则为0<br>
+按位异或^:      两位一个为0，一个为1，结果为1，否则为0<br>
+按位取反~:      0-》1，1-》0<br>
+<strong>位运算符</strong><br>
+还有3 个位运算符&gt;&gt;、&lt;&lt; 和&gt;&gt;&gt; , 运算规则:</p>
+<ol>
+<li>算术右移&gt;&gt;：低位溢出,符号位不变,并用符号位补溢出的高位</li>
+<li>算术左移&lt;&lt;: 符号位不变,低位补0</li>
+<li>&quot;&gt;&gt;&gt;&quot;逻辑右移也叫无符号右移,运算规则是: 低位溢出，高位补0<br>
+例子：<br>
+int a=1&gt;&gt;2; //1 =&gt; 00000001 =&gt; 00000000 本质1 / 2 / 2 =0<br>
+int c=1&lt;&lt;2; //1 =&gt; 00000001 =&gt; 00000100 本质1 * 2 * 2 = 4</li>
+</ol>
+<p>测试：<br>
+String str = &quot;18.8&quot;;<br>
+double d1 = Double.parseDouble(str);<br>
+char c1</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6">关系运算符</a></li>
+<li><a href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6">逻辑运算符</a></li>
+<li><a href="#%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6">三元运算符</a></li>
+<li><a href="#%E6%A0%87%E8%AF%86%E7%AC%A6%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99">标识符命名规则</a></li>
+<li><a href="#%E6%A0%87%E8%AF%86%E7%AC%A6%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83">标识符命名规范</a></li>
+<li><a href="#%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5">键盘输入</a></li>
+<li><a href="#%E8%BF%9B%E5%88%B6%E7%9A%84%E4%BB%8B%E7%BB%8D">进制的介绍</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://fcdx01.github.io/post/java-xue-xi/">
+              <h3 class="post-title">
+                Java 学习
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://fcdx01.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
